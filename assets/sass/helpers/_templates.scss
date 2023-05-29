@@ -1,0 +1,36 @@
+.link-default {
+	a {
+		@include flex-start
+	}
+}
+
+
+
+
+
+
+.m75 {
+	margin: 7.5rem 0;
+}
+
+.mb75 {
+	margin-bottom: 7.5rem;
+}
+
+.mb6 {
+	margin-bottom: 6rem;
+}
+
+
+
+.p75 {
+	padding: 7.5rem 0;
+}
+
+.pMix {
+	padding: 15rem 0 7.5rem 0;
+}
+
+.p15 {
+	padding: 15rem 0;
+}

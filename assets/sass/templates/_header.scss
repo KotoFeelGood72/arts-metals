@@ -1,0 +1,41 @@
+.header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: $header;
+	width: 100%;
+	will-change: transform;
+	@include z-index(header);
+}
+
+
+.header {
+}
+.section_in {
+}
+.header_main {
+	@include flex-space;
+
+}
+.header_logo {
+	opacity: 0;
+	visibility: hidden;
+}
+.burger_w {
+	color: $white;
+	@include flex-start;
+	cursor: pointer;
+	p {
+		margin-right: 1.5rem;
+		font-size: 2.4rem;
+		font-family: $font_2;
+		font-weight: 700;
+	}
+}
+.trigger {
+}
+.burger_btn {
+	font-size: 3.3rem;
+	line-height: 0;
+	@include flex-center;
+}

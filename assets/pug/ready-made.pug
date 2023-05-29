@@ -1,0 +1,68 @@
+extends _layout
+
+block vars
+	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'SHOP -- STAIRS'}
+block content_block
+	+page-header({
+		title: 'Металл в интерьере',
+		txt: 'Lorem ipsum dolor sit amet consectetur. Commodo sed sem adipiscing posuere. Purus velit lobortis aliquam vitae commodo mauris. Urna augue sit ullamcorper ut sit velit sollicitudin pulvinar.'
+	})
+	section.shop 
+		.section_in 
+			.shop_main
+				.shop-products 
+					h2 Лестницы
+					ul.products-grid.grid-3 
+						-for(i = 0; i < 12; i++)
+							- let img = ['products', 'stairs']
+							- let imgStep = i % 2
+							li.products-item
+								a(href="#") 
+									.products_item--img 
+										img(src=`i/shop/${img[imgStep]}.jpg`, alt="")
+									h3 Название товара
+					ul.pagination-list
+						-for(i = 1; i < 5; i++)
+							li 
+								a(href="#")=`0${i}`
+					.seo-block_w 
+						.seo_block 
+							h2 Заголовок
+							p Lorem ipsum dolor sit amet consectetur. Euismod ac pretium varius orci quis semper purus diam ornare. Et elit semper eget morbi. At potenti amet elementum lacus lacus tellus vitae. Amet nulla egestas natoque orci malesuada egestas. Et morbi faucibus lorem arcu. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui sit. Nunc ut eget facilisis viverra dolor iaculis arcu feugiat nec.
+							p Interdum lacus velit ornare hendrerit morbi. Aliquet quis a sed libero placerat. Euismod elit placerat posuere cras malesuada faucibus venenatis morbi. Lectus tristique sagittis mauris sit turpis tincidunt id arcu. Fringilla nibh enim purus tortor volutpat hendrerit tincidunt. Eget libero pulvinar tincidunt sapien at.Lorem ipsum dolor sit amet consectetur. Euismod ac pretium varius orci quis semper purus diam ornare. Et elit semper eget morbi. At potenti amet elementum lacus lacus tellus vitae. Amet nulla egestas natoque orci malesuada egestas. Et morbi faucibus lorem arcu. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui sit. Nunc ut eget facilisis viverra dolor iaculis arcu feugiat nec.
+							p Fringilla nibh enim purus tortor volutpat hendrerit tincidunt. Eget libero pulvinar tincidunt sapien at.Lorem ipsum dolor sit amet consectetur. Euismod ac pretium varius orci quis semper purus diam ornare. Et elit semper eget morbi. At potenti amet elementum lacus lacus tellus vitae. Amet nulla egestas natoque orci malesuada egestas. Et morbi faucibus lorem arcu. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui..
+						.link-more.black 
+							p Показать больше
+							+iconify({
+								icon: 'carbon:chevron-right',
+								mode: 'black'
+							})
+	.popup.popup-products(data-id="products")
+		.popup_bg.remove
+		.popup_main.popup_main--products
+			.close.remove 
+				+iconify({
+					icon: 'ic:outline-close'
+				})
+			.popup_slider_w
+				.popup_slider.swiper 
+					.swiper-wrapper
+						-for(i = 0; i < 5; i++)
+							.swiper-slide 
+								img(src="i/shop/stairs.jpg", alt="")
+				.product_slider--navigation
+					.pro-prev 
+						+iconify({
+							icon: 'carbon:chevron-left'
+						})
+					.pro-next 
+						+iconify({
+							icon: 'carbon:chevron-right'
+						})
+			.popup_products--bottom
+				h3 Название проекта
+				p Свяжитесь с нами, если хотите проект по данному эскизу:
+				+btn({
+					class: 'black',
+					btn: 'Оставить заявку'
+				})

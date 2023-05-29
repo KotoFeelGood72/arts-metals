@@ -1,0 +1,75 @@
+extends _layout
+
+block vars
+	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'SHOP'}
+block content_block
+	+page-header({
+		title: 'Металл в экстерьере'
+	})
+	section.shop 
+		.section_in 
+			.shop_main 
+				.sidebar 
+					nav.cat-list 
+						ul.cat_list--menu 
+							each item in ['Ворота', 'Заборы', 'Козырьки', 'Балконы', 'Ограждения', 'Комплексные решения', 'Освещение', 'Мебель для сада', 'Предметы для сада']
+								li 
+									a(href="#")=item 
+				.shop-products 
+					h2 Ворота
+					ul.products-grid.grid-3 
+						-for(i = 0; i < 12; i++)
+							li.products-item
+								a(href="#") 
+									.products_item--img 
+										img(src="i/shop/products.jpg", alt="")
+									h3 Название товара
+					ul.pagination-list
+						-for(i = 1; i < 5; i++)
+							li 
+								a(href="#")=`0${i}`
+					.seo-block_w 
+						.seo_block 
+							h2 Заголовок
+							p Lorem ipsum dolor sit amet consectetur. Euismod ac pretium varius orci quis semper purus diam ornare. Et elit semper eget morbi. At potenti amet elementum lacus lacus tellus vitae. Amet nulla egestas natoque orci malesuada egestas. Et morbi faucibus lorem arcu. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui sit. Nunc ut eget facilisis viverra dolor iaculis arcu feugiat nec.
+							p Interdum lacus velit ornare hendrerit morbi. Aliquet quis a sed libero placerat. Euismod elit placerat posuere cras malesuada faucibus venenatis morbi. Lectus tristique sagittis mauris sit turpis tincidunt id arcu. Fringilla nibh enim purus tortor volutpat hendrerit tincidunt. Eget libero pulvinar tincidunt sapien at.Lorem ipsum dolor sit amet consectetur. Euismod ac pretium varius orci quis semper purus diam ornare. Et elit semper eget morbi. At potenti amet elementum lacus lacus tellus vitae. Amet nulla egestas natoque orci malesuada egestas. Et morbi faucibus lorem arcu. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui sit. Nunc ut eget facilisis viverra dolor iaculis arcu feugiat nec.
+							p Fringilla nibh enim purus tortor volutpat hendrerit tincidunt. Eget libero pulvinar tincidunt sapien at.Lorem ipsum dolor sit amet consectetur. Euismod ac pretium varius orci quis semper purus diam ornare. Et elit semper eget morbi. At potenti amet elementum lacus lacus tellus vitae. Amet nulla egestas natoque orci malesuada egestas. Et morbi faucibus lorem arcu. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui..
+						.link-more.black 
+							p Показать больше
+							+iconify({
+								icon: 'carbon:chevron-right',
+								mode: 'black'
+							})
+	.popup.popup-products(data-id="products")
+		.popup_bg.remove
+		.popup_main.popup_main--products
+			.close.remove 
+				+iconify({
+					icon: 'ic:outline-close'
+				})
+			.popup_slider_w.max-width-50
+				.popup_slider.swiper 
+					.swiper-wrapper
+						-for(i = 0; i < 5; i++)
+							.swiper-slide 
+								img(src="i/shop/products.jpg", alt="")
+				.product_slider--navigation
+					.pro-prev 
+						+iconify({
+							icon: 'carbon:chevron-left'
+						})
+					.pro-next 
+						+iconify({
+							icon: 'carbon:chevron-right'
+						})
+			.popup_product--content 
+				h3 Название товара
+				.scroll-block 
+					p Lorem ipsum dolor sit amet consectetur. Tellus congue consectetur nulla condimentum mattis condimentum feugiat. Facilisis etiam nullam praesent vulputate mauris rhoncus augue. Cras convallis lacus enim ac risus porttitor. Quis purus risus id dui amet arcu nunc scelerisque id. Pretium dignissim tincidunt cursus egestas aliquet. Quis accumsan vitae praesent dictum a. Scelerisque malesuada sit fermentum sed.
+					p Risus posuere montes in ut nunc rhoncus accumsan nunc et. Maecenas sed aliquet tristique mauris odio et bibendum imperdiet. Habitasse porta tincidunt porttitor volutpat consequat. Lacinia hendrerit elit id egestas varius eu. Purus magna a congue dignissim amet mattis. Mollis sit pharetra proin viverra pulvinar mauris...
+				.popup_products--bottom 
+					p Для заказа свяжитесь с нами:
+					+btn({
+						class: 'black',
+						btn: 'Оставить заявку'
+					})

@@ -1,0 +1,41 @@
+extends _layout
+
+block vars
+	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'SHOP -- STAIRS'}
+block content_block
+	+page-header({
+		logo: 'full-logo',
+	})
+	section.page-about 
+		.section_in 
+			.page_about--main 
+				.page_about--content 
+					h1 Артур Джаруллаев
+					span основатель
+					.block-txt 
+						p Артур Джаруллаев занимается архитектурным металлом около двадцати лет. Высшее художественное образование он получил в одной из лучших школ страны – в Санкт-Петербургской Художественной Академии Штиглица, на кафедре Художественной обработки металла. За годы работы, из под его рук вышло множество объектов - декоративные ансамбли из металла для коттеджей, загородных домов, множество ворот и ограждений, лестниц и каминных убранств.
+						p Артур участвовал в рабочей группе художников по металлу, над созданием куполов и над главных крестов к храмам, таким как: « Храм Казанской иконы Божией Матери» в г. Юрмала, «Свято-Тихоновский храм» в г.Ярославль и «Храм Александро-Невского» в г.Челябинск.
+						p Имеет диплом реставратора, с правом на реставрационные работы.
+				.page_about--img 
+					img(src="i/about/about.jpg", alt="")
+	section.portfolio 
+		.section_in 
+			.portfolio_main 
+				.decor 
+					img(src="i/decor/flower-work.png", alt="")
+				p!='Команда ArtMetallStudio полностью состоит из профессиональных художников и кузнецов. </br>ArtMetallStudio – это качественный подход к работе, основанный на опыте и профессионализме.'
+				.project_slider.swiper 
+					.swiper-wrapper
+						-for(i = 0; i < 12; i++) 
+							.swiper-slide 
+								a(href="#")
+									img(src="i/home/about.jpg", alt="")
+					.project_slider--navigation 
+						.p-prev 
+							+iconify({
+								icon: 'carbon:chevron-left'
+							})
+						.p-next 
+							+iconify({
+								icon: 'carbon:chevron-right'
+							})

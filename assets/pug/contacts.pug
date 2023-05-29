@@ -1,0 +1,77 @@
+extends _layout
+
+block vars
+	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'CONTACTS'}
+block content_block
+	+page-header({
+		title: 'Как с нами связаться?'
+	})
+	section.contacts 
+		.section_in 
+			.contacts_main 
+				.contacts_info 
+					ul.contacts_info--list 
+						-
+							let info = [
+								{
+									link: '8 (888) 888-88-88',
+									label: 'Номер телефона',
+									icon: 'ic:baseline-phone-in-talk'
+								},
+								{
+									link: 'mail@mail.ru',
+									label: 'mail@mail.ru',
+									icon: 'fluent:mail-24-filled'
+								},
+								{
+									txt: 'Lorem ipsum dolor sit amet consectetur.',
+									label: 'Адрес',
+									icon: 'material-symbols:location-on'
+								},
+							]
+						each item in info 
+							li.contacts_info--item 
+								.contacts_item--label 
+									+iconify({
+										icon: item.icon
+									})
+									p=item.label 
+								.contacts_item--link 
+									if item.link 
+										a(href="#")=item.link 
+									else 
+										p=item.txt 
+				.contacts_social_w 
+					.contacts_social--label 
+						+iconify({
+							icon: 'material-symbols:smartphone'
+						})
+						p Социальные сети
+					ul.contacts_social
+						-for(i = 0; i < 3; i++)
+							- let nameSocial = ['WhatsApp', 'Telegram', 'ВКонтакте']
+							- let iconSocial = ['ri:whatsapp-fill', 'ic:baseline-telegram', 'entypo-social:vk-with-circle']
+								li.contacts_social--item 
+									a(href="#")
+										+iconify({
+											icon: iconSocial[i]
+										}) 
+										p=nameSocial[i]
+			.contacts_body 
+				.map 
+					<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6a3a7f22756fe472242162ff2c0704613d0b10c9d74adf2cc8ac51dabe2f347a&amp;width=100%25&amp;height=447&amp;lang=ru_RU&amp;scroll=false"></script>
+				.contacts_form_w 
+					h4 Оставить заявку на обратный звонок:
+					.contacts_form
+						+input({
+							place: 'Имя'
+						})
+						+input({
+							place: 'Номер телефона',
+							type: 'tel'
+						})
+						.form_notice!='Отправляя заявку вы соглашаетесь на обработку своих персональных данных и принимаете <a href="#">Политику Конфиденциальности</a>'
+						+btn({
+							submit: 'Отправить'
+						})
+

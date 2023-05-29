@@ -1,0 +1,118 @@
+extends _layout
+
+block vars
+	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'HOME'}
+block content_block
+	section.hero 
+		.section_in 
+			.hero_main 
+				.hero_logo--origin 
+					img(src="i/global/logo.png", alt="")
+				.hero_content 
+					.hero_logo--txt 
+						img(src="i/global/logo.svg", alt="")
+					h1 Студия архитектурного металла
+					+link
+	section.about.p15
+		.section_in 
+			.about_main
+				.about_content
+					.about_logo--txt 
+						img(src="i/home/about-logo.svg", alt="")
+					.global_txt
+						p ArtMetallStudio — это современная студия архитектурного металла.
+						p Мы занимаемся  разработкой и созданием металлического декора на высочайшем уровне. Наше кредо — тщательное исполнение, как в интерьерной декоративной пластике, так и в масштабных градостроительных объектах.
+						p В архитектуре и в садово-парковом искусстве, качественный декор из металла, как прекрасно подобранный  дорогой комплект аксессуаров в одежде человека — украшает и ярко подчеркивают образ.
+					.decor 
+						img(src="i/decor/flower.png", alt="")
+				.about_img 
+					img(src="i/home/about.jpg", alt="")
+	section.sale 
+		.section_in 
+			.sale_main 
+				.sale-txt-decor Акция
+				h2 Скидка 5% при заказе от 100 000 рублей
+	section.project.p15 
+		.section_in 
+			.project_main 
+				h3.mb6 Наши проекты
+				.project_slider--w
+					.project_slider.swiper 
+						.swiper-wrapper
+							-for(i = 0; i < 12; i++) 
+								.swiper-slide 
+									a(href="#")
+										img(src="i/home/about.jpg", alt="")
+					.project_slider--navigation 
+						.p-prev 
+							+iconify({
+								icon: 'carbon:chevron-left'
+							})
+						.p-next 
+							+iconify({
+								icon: 'carbon:chevron-right'
+							})
+	section.step 
+		.section_in 
+			.step_main 
+				.step_content 
+					.step_logo--txt.mb6
+						img(src="i/home/about-logo.svg", alt="")
+					.seo-block_w 
+						.seo_block.global_txt
+							p Lorem ipsum dolor sit amet consectetur. Euismod ac pretium varius orci quis semper purus diam ornare. Et elit semper eget morbi. At potenti amet elementum lacus lacus tellus vitae. Amet nulla egestas natoque orci malesuada egestas. Et morbi faucibus lorem arcu. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui sit. Nunc ut eget facilisis viverra dolor iaculis arcu feugiat nec.
+							p Interdum lacus velit ornare hendrerit morbi. Aliquet quis a sed libero placerat. Euismod elit placerat posuere cras malesuada faucibus venenatis morbi. Lectus tristique sagittis mauris sit turpis tincidunt id arcu. Fringilla nibh enim purus tortor volutpat hendrerit tincidunt. Eget libero pulvinar tincidunt sapien at.Lorem ipsum dolor sit amet consectetur. Euismod ac pretium varius orci quis semper purus diam ornare. Et elit semper eget morbi. At potenti amet elementum lacus lacus tellus vitae. Amet nulla egestas natoque orci malesuada egestas. Et morbi faucibus lorem arcu. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui sit. Nunc ut eget facilisis viverra dolor iaculis arcu feugiat nec.
+							p Fringilla nibh enim purus tortor volutpat hendrerit tincidunt. Eget libero pulvinar tincidunt sapien at.Lorem ipsum dolor sit amet consectetur. Euismod ac pretium varius orci quis semper purus diam ornare. Et elit semper eget morbi. At potenti amet elementum lacus lacus tellus vitae. Amet nulla egestas natoque orci malesuada egestas. Et morbi faucibus lorem arcu. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui sit. Nunc ut eget facilisis viverra dolor iaculis arcu feugiat nec. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui sit. Nunc ut eget facilisis viverra dolor iaculis arcu feugiat nec. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse
+						.link-more.brown 
+							p Показать больше
+							+iconify({
+								icon: 'carbon:chevron-right',
+							})
+				ul.step-list
+					-for(i = 0; i < 7; i++)
+						- let title = ['Знакомство с заказчиком', 'Разработка эскиза', 'Заключение договора', 'Согласование работ', 'Учитываем все нюансы', 'Монтаж, доставка']
+						- let txt = ['Определение и утверждение концепции проекта.', 'Индивидуальный заказ начинается с эскизов изделия с привязкой к конкретным размерам и стилю. Для этого мы выезжаем на замеры или используем предоставленные чертежи и фото материалы.', 'Составляем коммерческое предложение с ценой. Если цена устраивает, заключаем договор, Вы вносите предоплату. Или продолжается подбор и разработка новых вариантов.', 'Готовим рабочую проектную документацию, где показываем все узлы, толщины сечений и т.д. Согласовываем образец фрагмента из металла, цвет покраски. Запускаем в изготовление.', 'Может сложиться ошибочное представление, что вышеназванные пункты – это навязывание дополнительных услуг. На самом деле, это всего лишь многолетний опыт работы, в результате которого обеспечивается хороший конечный результат. Очень часто, многие забывают о том, что ковку нужно состыковать с таким материалам как камень, стекло, дерево и т.д. Также при установке кованного изделия, нужно учитывать скрытую электропроводку в стенах и в полу . На стадии проектирования – ARTMETALLSTUDIO учитывает все нюансы.', 'Производим монтаж или отправляем изготовленное изделие по адресу заказчика. Доставка в регионы России из Санкт-Петербурга осуществляется транспортной компанией.']
+						li.step-item 
+							.step_item--number=i
+							.step_item--content 
+								p=title[i]
+								span=txt[i]
+			.step-decor 
+				img(src="i/decor/step.png", alt="")
+	section.reviews 
+		.section_in 
+			.reviews_main 
+				h4 Что говорят клиенты?
+				.reviews_slider.swiper
+					.swiper-wrapper  
+						-for(i = 0; i < 5; i++)
+							.swiper-slide 
+								p Александр В.
+								span Lorem ipsum dolor sit amet consectetur. Volutpat auctor sed et faucibus urna dictum ornare. Id bibendum pulvinar laoreet dignissim rhoncus aliquam habitant. Lectus in elit dui nulla. Risus at quam enim integer facilisi adipiscing dui tellus. Sit quisque nisl morbi mi. Eget nunc euismod faucibus in in lacus. Nunc ut mauris volutpat euismod imperdiet sodales. Nisi dis eget auctor nec senectus commodo. Nibh etiam enim elit et et egestas.
+								.reviews-decor
+									+iconify({
+										icon: 'icon-park-outline:quote'
+									})
+					.reviews_pagination 
+			.contacts_main 
+				h5 Ваш звонок очень важен для нас
+				p Lorem ipsum dolor sit amet consectetur.
+				ul.contacts-list
+					-for(i = 0; i < 2; i++)
+						- let link = ['8 (888) 888-88-88', 'mail@mail.ru']
+						- let icon = ['ic:baseline-phone-in-talk', 'fluent:mail-24-filled']
+							li.contacts-item 
+								a(href="#")
+									p=link[i]
+									+iconify({
+										icon: icon[i]
+									})
+				ul.social-list 
+					each item in ['ri:whatsapp-fill', 'ic:baseline-telegram', 'entypo-social:vk-with-circle']
+						li 
+							a(href="#")
+								+iconify({
+									icon: item
+								}) 
+	section.home-map 
+		<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6a3a7f22756fe472242162ff2c0704613d0b10c9d74adf2cc8ac51dabe2f347a&amp;width=100%25&amp;height=447&amp;lang=ru_RU&amp;scroll=false"></script>

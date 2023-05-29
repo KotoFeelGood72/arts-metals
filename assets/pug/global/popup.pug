@@ -1,0 +1,47 @@
+.popup.form 
+	.popup_bg.remove 
+	.popup_main.form-main
+		.close.remove
+			+iconify({
+				icon: 'ic:outline-close'
+			})
+		.contacts_form_w 
+			h4 Оставить заявку на обратный звонок:
+			.contacts_form
+				+input({
+					place: 'Имя'
+				})
+				+input({
+					place: 'Номер телефона',
+					type: 'tel'
+				})
+				.form_notice!='Отправляя заявку вы соглашаетесь на обработку своих персональных данных и принимаете <a href="#">Политику Конфиденциальности</a>'
+				+btn({
+					submit: 'Отправить'
+				})
+
+.burger.popup(data-id="burger")
+	.popup_bg 
+	.burger_main
+		.burger_close 
+			p Меню
+			+iconify({
+				icon: 'ic:outline-close'
+			})
+		nav.burger_nav 
+			ul.burger_nav--list 
+				each item, i in ['Главная', 'О себе', 'Металл в интерьере', 'Металл в экстерьере', 'Готовые решения', 'Контакты']
+					li 
+						a(href="#")=item
+						if i === 2
+							ul.sub-list 
+								each item in ['Абажуры', 'Светильники и люстры', 'Лестницы', 'Печи и камины', 'Сувениры', 'Комплексные решения']
+									li 
+										a(href="#")=item
+		ul.burger-social 
+			each item in ['ri:whatsapp-fill', 'ic:baseline-telegram']
+				li 
+					a(href="#")
+						+iconify({
+							icon: item
+						})

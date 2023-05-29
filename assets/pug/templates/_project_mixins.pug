@@ -1,0 +1,45 @@
+// link
+
+mixin link(data)
+	.link-default
+		a(href="#")
+			p Узнать больше
+			.link-icon 
+				+iconify({
+					icon: 'carbon:chevron-right'
+				})
+
+
+// End link
+
+// Page header
+
+mixin page-header(data)
+	.page-header
+		if data.title
+			h1=data.title
+		if data.txt 
+			p=data.txt
+		if data.logo 
+			.page_header--logo 
+				img(src=`i/global/${data.logo}.svg`, alt="")
+
+
+// end page header
+
+// Button type default
+
+mixin btn(data)
+	.btn-default(class=data.class ? data.class : 'not-color')
+		if data.btn 
+			button(type="button" class="trigger" data-target=data.target)=data.btn
+		else if data.submit
+			input(type="submit" value=data.submit)
+// end button
+
+mixin input(data)
+	.global_input(class=data.class ? data.class : data.class="form_input")
+		if data.submit
+			input(type="submit" value=data.submit)
+		else
+			input(type=data.type ? data.type : data.type="text" placeholder=data.place ? data.place : data.place="Ваше имя")
