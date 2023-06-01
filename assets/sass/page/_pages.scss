@@ -1,0 +1,29 @@
+.page-header {
+	background: url('../../i/global/header.jpg') center/cover no-repeat;
+	height: 40rem;
+	position: relative;
+
+	text-align: center;
+
+	@include flex-center;
+	flex-direction: column;
+	h1 {
+		color: $white;
+		z-index: 1;
+		font-size: 4.8rem;
+	}
+
+	p {
+		color: $white;
+		max-width: 77.7rem;
+		margin-top: 3rem;
+	}
+}
+
+.page_header--logo {
+	max-width: 70.1rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

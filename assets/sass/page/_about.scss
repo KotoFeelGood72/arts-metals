@@ -1,0 +1,66 @@
+.page_about--main {
+	@include flex-start;
+}
+
+.page_about--content {
+	max-width: 67.7rem;
+	margin-right: 12rem;
+
+	h1 {
+		font-family: $font_3;
+		font-weight: 400;
+		margin-bottom: 2rem;
+		font-size: 4.8rem;
+		line-height: 4.8rem;
+		text-align: center;
+	}
+
+	&>span {
+		font-size: 1.3rem;
+		font-family: $font_2;
+		font-weight: 700;
+		text-align: center;
+		display: block;
+
+	}
+}
+
+.page_about--img {
+	width: 100%;
+	img {
+		object-fit: cover;
+	}
+}
+
+.portfolio {
+	background: linear-gradient(180deg, #EAEAEA 0%, rgba(234, 234, 234, 0) 100%);
+	padding: 10rem 0 15.5rem 0;
+	.decor {
+		max-width: 15.9rem;
+		margin: 0 auto 12rem auto;
+	}
+
+
+	.portfolio_main {
+		text-align: center;
+		&>p {
+
+			font-family: $font_3;
+			font-size: 2.4rem;
+			margin-bottom: 15rem;
+		}
+	}
+
+	.project_slider {
+		overflow: hidden!important;
+		padding-bottom: 9rem!important;
+	}
+
+	.project_slider--navigation {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+	}
+}

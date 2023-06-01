@@ -4,6 +4,40 @@
 	}
 }
 
+.link-more {
+	@include flex-start;
+	font-family: $font_2;
+	font-weight: 700;
+	cursor: pointer;
+
+	.icons {
+		font-family: $font_2;
+		font-weight: 900;
+		font-size: 2rem;
+		margin-bottom: -0.5rem;
+	}
+	p {
+		margin-right: 0.5rem;
+	}
+	&.brown {
+		color: $red;
+		a {
+			color: $red;
+			color: $red;
+		}
+	}
+	&.black {
+		color: $dark!important;
+		a, p {
+			color: $dark!important;
+			color: $dark!important;
+		}
+	}
+	a {
+		@include flex-start;
+	}
+}
+
 
 
 
@@ -33,4 +67,146 @@
 
 .p15 {
 	padding: 15rem 0;
+}
+.pt15 {
+	padding-top: 15rem;
+}
+
+.mb15 {
+	margin-bottom: 15rem;
+}
+
+.mb10 {
+	margin-bottom: 10rem;
+}
+
+.global_input {
+	margin-bottom: 2rem;
+	input {
+		@include app;
+		border: .1rem solid $gray-1;
+		padding: 2.6rem 3rem;
+		width: 100%;
+	}
+}
+
+
+
+
+.btn-default {
+	input[type="submit"], button {
+		@include app;
+		padding: 3rem 5.1rem;
+		font-family: $font_2;
+		font-weight: 700;
+		color: $white;
+		background-color: $dark;
+		cursor: pointer;
+		transition: all .3s ease;
+		&:hover {
+			background-color: $black;
+		}
+	}
+}
+
+.grid-3 {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+	grid-gap: 8rem 4rem;
+	margin-bottom: 8rem;
+}
+
+.pagination-list {
+	@include flex-start;
+	position: relative;
+	display: inline-flex;
+	align-items: flex-end;
+	&:before {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		content: '';
+		border-bottom: .1rem solid $gray-1;
+		width: 100%;
+	}
+	li {
+		&:not(:last-child) {
+			margin-right: 2.3rem;
+		}
+		a {
+			color: $gray-1;
+			font-family: $font_2;
+			font-weight: 700;
+			@include flex-center;
+			padding-bottom: 1.2rem;
+
+			&.current-page-item { 
+				color: $dark;
+				font-size: 2.4rem;
+				line-height: 2.6rem;
+				pointer-events: none;
+				position: relative;
+				&:before {
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					border-bottom: .2rem solid $dark;
+					content: '';
+				}
+			}
+		}
+	}
+}
+
+.seo-block_w {
+	h2, h3, h4, h5, h6 {
+		font-size: 2.4rem;
+		font-family: $font_2;
+		font-weight: 700;
+		color: $dark;
+		padding: 2rem 0;
+	}
+	p, ul, ol {
+		padding: 1rem 0;
+		color: $gray-2;
+	}
+
+	.link-more {
+		padding: 2rem 0;
+	}
+}
+
+.shop_main   {
+
+	.seo_block {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 16;
+		max-height: 37.4rem;
+	
+		&.visible {
+			max-height: 100%;
+			-webkit-line-clamp: 1000000;
+		}
+	}
+}
+
+.step_main   {
+
+	.seo_block {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 34;
+		max-height: 86rem;
+	
+		&.visible {
+			max-height: 100%;
+			-webkit-line-clamp: 1000000;
+		}
+	}
 }

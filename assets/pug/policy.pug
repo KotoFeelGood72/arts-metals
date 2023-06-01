@@ -3,6 +3,9 @@ extends _layout
 block vars
 	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'HOME'}
 block content_block
+	+page-header({
+		logo: 'full-logo',
+	})
 	section.policy 
 		.section_in 
 			.policy_main 

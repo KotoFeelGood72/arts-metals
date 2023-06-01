@@ -4,27 +4,30 @@ block vars
 	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'SHOP -- STAIRS'}
 block content_block
 	+page-header({
-		title: 'Металл в интерьере',
+		title: 'Готовые решения',
 		txt: 'Lorem ipsum dolor sit amet consectetur. Commodo sed sem adipiscing posuere. Purus velit lobortis aliquam vitae commodo mauris. Urna augue sit ullamcorper ut sit velit sollicitudin pulvinar.'
 	})
 	section.shop 
-		.section_in 
+		.section_custom 
 			.shop_main
 				.shop-products 
-					h2 Лестницы
 					ul.products-grid.grid-3 
 						-for(i = 0; i < 12; i++)
 							- let img = ['products', 'stairs']
 							- let imgStep = i % 2
 							li.products-item
-								a(href="#") 
+								a(href="#" class="trigger" data-target="ready") 
 									.products_item--img 
 										img(src=`i/shop/${img[imgStep]}.jpg`, alt="")
 									h3 Название товара
-					ul.pagination-list
+					ul.pagination-list.mb15
 						-for(i = 1; i < 5; i++)
-							li 
-								a(href="#")=`0${i}`
+							if i === 1
+								li 
+									a(href="#" class="current-page-item")=`0${i}`
+							else
+								li 
+									a(href="#")=`0${i}`
 					.seo-block_w 
 						.seo_block 
 							h2 Заголовок
@@ -37,9 +40,9 @@ block content_block
 								icon: 'carbon:chevron-right',
 								mode: 'black'
 							})
-	.popup.popup-products(data-id="products")
+	.popup.popup-products(data-id="ready")
 		.popup_bg.remove
-		.popup_main.popup_main--products
+		.popup_main.popup_main--products.popup_main--ready
 			.close.remove 
 				+iconify({
 					icon: 'ic:outline-close'
@@ -53,16 +56,18 @@ block content_block
 				.product_slider--navigation
 					.pro-prev 
 						+iconify({
-							icon: 'carbon:chevron-left'
+							icon: 'ic:sharp-chevron-left'
 						})
 					.pro-next 
 						+iconify({
-							icon: 'carbon:chevron-right'
+							icon: 'ic:sharp-chevron-right'
 						})
 			.popup_products--bottom
-				h3 Название проекта
-				p Свяжитесь с нами, если хотите проект по данному эскизу:
+				.popup_bottom--title
+					h3 Название проекта
+					p Свяжитесь с нами, если хотите проект по данному эскизу:
 				+btn({
-					class: 'black',
-					btn: 'Оставить заявку'
+					class: 'black remove',
+					btn: 'Оставить заявку',
+					target: 'form'
 				})

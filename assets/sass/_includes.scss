@@ -22,9 +22,13 @@
 
 // Page
 
+@import "page/pages";
 @import "page/start";
 @import "page/home";
 @import "page/policy";
+@import "page/about";
+@import "page/contacts";
+@import "page/shop";
 
 // plugins
 @import "plugins/swiper";

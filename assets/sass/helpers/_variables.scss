@@ -8,9 +8,9 @@ $footer_mob: 10rem;
 
 //---------------------------------------------fonts
 $font_path: "../fonts/";
-$font_1: 'Tahoma-Regular', sans-serif;
-$font_2: 'Tahoma-Bold', sans-serif;
-$font_3: 'Constantia-Medium', serif;
+$font_1: 'Tahoma-Regular';
+$font_2: 'Tahoma-Bold';
+$font_3: 'Constantia';
 
 $font_size_base: 1.6rem;
 //---------------------------------------------fonts###
@@ -30,7 +30,7 @@ $trans: transparent;
 
 $color_text_base: $black;
 $color_link_base: $black;
-$body_bg: $white;
+$body_bg: #F4F4F4;
 //---------------------------------------------colors###
 
 //---------------------------------------------z-index

@@ -15,6 +15,7 @@
 
 	h1 {
 		max-width: 69.3rem;
+		color: $white;
 	}
 }
 .hero_logo--txt {
@@ -160,17 +161,20 @@
 }
 .step {
 	background: linear-gradient(180deg, #EAEAEA 0%, rgba(234, 234, 234, 0) 100%);
-	padding: 15rem 0;
 }
 .step_main {
 	@include flex-start;
+	align-items: flex-start;
 	flex-wrap: wrap;
-
-	&>div {
-		width: 50%;
-	}
 }
 .step_content {
+	max-width: 53.7rem;
+	margin-right: 12rem;
+
+	.seo_block  {
+		margin-bottom: 4.4rem;
+		color: $gray-2;
+	}
 }
 .step_logo--txt {
 	max-width: 25rem;
@@ -184,33 +188,172 @@
 }
 .brown {
 }
+
+.step_main {
+	
+}
 .step-list {
+	max-width: 64.5rem;
+
+	li {
+		@include flex-start;
+
+		&:not(:last-child) {
+			margin-bottom: 4rem;
+		}
+	}
+
+	.step_item--number {
+		font-size: 8rem;
+		color: $gray-2;
+		font-family: $font_3;
+		margin-right: 3rem;
+		font-style: italic;
+	}
+
+	.step_item--content {
+		p {
+			font-size: 2.4rem;
+			font-family: $font_2;
+			font-weight: 700;
+			margin-bottom: 1rem;
+			color: $gray-2;
+		}
+	}
 }
 .step-decor {
+	max-width: 73rem;
+	margin: 0 auto;
 }
 .reviews {
+	padding: 34.3rem 0 8rem 0;
+	background: url('../../i/home/review.jpg') 0% 130% no-repeat;
+	text-align: center;
 }
 .reviews_main {
 }
 .reviews_slider {
+
+	.swiper-wrapper {
+		margin-bottom: 10.8rem;
+	}
+
+	.swiper-slide {
+		p {
+			margin-bottom: 3rem;
+			font-family: $font_2;
+			font-weight: 700;
+			color: #0d0d0d;
+		}
+		span {
+			color: $gray-2;
+			display: block;
+			margin-bottom: 5rem;
+		}
+	}
 }
 .reviews-decor {
+
+	font-size: 3.5rem;
+	color: $gray-2;
 }
 .icon-park-outline:quote {
 }
 .reviews_pagination {
+	@include flex-center;
+	display: inline-flex;
+	position: relative;
+	width: auto!important;
+	&:after {
+		position: absolute;
+		bottom: -.9rem;
+		left: 0;
+		content: '';
+		border-bottom: .15rem solid $gray-2;
+		width: 100%;
+	}
+	.swiper-pagination-bullet {
+		width: auto!important;
+		background: $trans;
+		bottom: 0!important;
+		height: 2.4rem;
+		@include flex-end;
+		align-items: flex-end;
+		margin: 0!important;
+		position: relative!important;
+		font-family: $font_2;
+		font-weight: 700;
+		opacity: 1;
+		margin-bottom: 1rem;
+		&:before {
+			position: absolute;
+			left: 0;
+			width: 100%;
+			border-bottom: .3rem solid $dark;
+			background-color: $dark;
+			content: '';
+			z-index: 3;
+			opacity: 0;
+			visibility: hidden;
+			bottom: -1rem;
+		}
+		&-active {
+			font-size: 2.4rem;
+			line-height: 2.4rem;
+			&:before {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+		&:not(:last-child) {
+			margin:0 2.5rem 0 0!important;
+		}
+	}
 }
 .contacts_main {
+
+	&>p {
+		margin: 3rem 0 6.4rem 0;
+	}
 }
 .contacts-list {
+	@include flex-center;
+	margin-bottom: 6.4rem;
 }
 .contacts-item {
+
+	font-size: 2.4rem;
+	font-weight: 700;
+	font-family: $font_2;
+
+	&:not(:last-child) {
+		margin-right: 4.2rem;
+	}
+	.icons {
+		margin-right: 1rem;
+	}
+	a {
+		@include flex-start;
+	}
 }
 .ic:baseline-phone-in-talk {
 }
 .fluent:mail--filled {
 }
 .social-list {
+
+	@include flex-center;
+
+	li {
+		padding: 2rem 2rem 0 0;
+		font-size: 5rem;
+		a {
+			color: $gray-2;
+		}
+		&:last-child {
+			font-size: 4.5rem;
+		}
+	}
 }
 .whatsapp-fill {
 }
@@ -219,4 +362,9 @@
 .entypo-social:vk-with-circle {
 }
 .home-map {
+
+	height: 40rem;
+	#map {
+		height: 100%;
+	}
 }

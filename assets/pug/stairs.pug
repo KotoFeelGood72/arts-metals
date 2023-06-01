@@ -7,8 +7,8 @@ block content_block
 		title: 'Металл в интерьере'
 	})
 	section.shop 
-		.section_in 
-			.shop_main 
+		.section_custom 
+			.shop_main.flex-2 
 				.sidebar 
 					nav.cat-list 
 						ul.cat_list--menu 
@@ -20,14 +20,18 @@ block content_block
 					ul.products-grid.grid-3 
 						-for(i = 0; i < 12; i++)
 							li.products-item
-								a(href="#") 
+								a(href="#" class="trigger" data-target="products") 
 									.products_item--img 
 										img(src="i/shop/stairs.jpg", alt="")
 									h3 Название товара
-					ul.pagination-list
+					ul.pagination-list.mb15
 						-for(i = 1; i < 5; i++)
-							li 
-								a(href="#")=`0${i}`
+							if i === 1
+								li 
+									a(href="#" class="current-page-item")=`0${i}`
+							else
+								li 
+									a(href="#")=`0${i}`
 					.seo-block_w 
 						.seo_block 
 							h2 Заголовок

@@ -7,6 +7,24 @@
 		padding: 0 2rem;
 	}
 }
+
+.section_custom {
+	max-width: 153.7rem;
+	width: 100%;
+	margin: 0 auto;
+	@include bp($point_2) {
+		padding: 0 2rem;
+	}
+}
+
+.section_xxl {
+	max-width: 168rem;
+	width: 100%;
+	margin: 0 auto;
+	@include bp($point_2) {
+		padding: 0 2rem;
+	}
+}
 // End Style
 
 

@@ -14,11 +14,27 @@ let $body,
 
 $(document).ready(function ($) {
 	$body = $('body');
+
+	if(devStatus) {
+		pageWidget(['index']);
+		pageWidget(['about']);
+		pageWidget(['contacts']);
+		pageWidget(['policy']);
+		pageWidget(['ready-made']);
+		pageWidget(['shop']);
+		pageWidget(['stairs']);
+		getAllClasses('html', '.elements_list');
+	}
+
+	
 });
 
 $(window).on('load', function () {
 	updateSizes();
 	loadFunc();
+	modal();
+	loadVisibleContent();
+	checkSubmenu();
 });
 
 $(window).on('resize', function () {
@@ -129,74 +145,6 @@ $(document).ready(function() {
 
 
 
-// const btnSubmit = document.querySelectorAll('button[type="submit"]')
-// Array.from(btnSubmit).map((item) => {
-// 	item.addEventListener('click', (e) => {
-// 		e.preventDefault();
-// 		succes('.succes')
-// 	})
-// })
-
-
-// function allDefautAnim(bottom = false, start = '-=30% center', end = 'bottom') {
-// 	const paralaxWrapper = Array.from(document.querySelectorAll('.sec_anim')).map(function(el) {
-// 		const arr = Array.from(el.querySelectorAll('.el_anim')).map(function (item, index) {
-// 			const tl = gsap.timeline();
-// 			ScrollTrigger.create({
-// 				animation: tl,
-// 				trigger: el,
-// 				start: start,
-// 				end: end,
-// 				ease: 'none',
-// 			})
-// 			tl.fromTo(item, {
-// 				y: 100, 
-// 				duration: .4,
-// 				autoAlpha: 0,
-// 			}, {
-// 				y: 0,
-// 				autoAlpha: 1,
-// 				delay: 0.1 + (0.1 * index),
-// 			});
-// 		});
-// 	});
-// }
-
-// function popupForms(pr) {
-
-// 	let popupForms = document.querySelector('.callback')
-// 	let popupFormsTrigger = document.querySelectorAll('.btn_popup')
-// 	let popupFormsClose = document.querySelectorAll('.remove_popup')
-// 	let popupFormsSubmit = popupForms.querySelector('button[type="submit"]')
-// 	const burgerPopup = document.querySelector('.burger')
-	
-// 	Array.from(popupFormsTrigger).map((item) => {
-// 		item.addEventListener('click', () => {
-// 			popupForms.classList.add('active');
-// 			win.style.overflow = "hidden";
-// 			win.style.paddingRight = pr; 
-// 			burgerPopup.classList.remove('active')
-// 		})
-// 	})
-
-
-// 	Array.from(popupFormsClose).map((item) => {
-// 		item.addEventListener('click', () => {
-// 			popupForms.classList.remove('active')
-// 			win.style.overflow = "";
-// 			win.style.paddingRight = ""; 
-// 		})
-// 	})
-
-// 	popupFormsSubmit.addEventListener('click', () => {
-// 		popupForms.classList.remove('active')
-// 		win.style.overflow = "";
-// 		win.style.paddingRight = ""; 
-// 		succes('.succes')
-// 	})
-// }
-
-
 
 
 
@@ -213,7 +161,7 @@ $(document).ready(function()  {
 })
 
 
-const PROJECT_SLIDER = new Swiper('.project_slider', {
+const PROJECT_SLIDER = new Swiper('.project_slider_home', {
 	breakpoints: {
 		320: {
 			slidesPerView: 1,
@@ -237,6 +185,189 @@ const PROJECT_SLIDER = new Swiper('.project_slider', {
 	centeredSlidesBounds: true,
 	speed: 700,
 })
+
+const PROJECT_SLIDER_ABOUT = new Swiper('.project_slider_about', {
+	breakpoints: {
+		320: {
+			slidesPerView: 1,
+			spaceBetween: 10,
+		},
+		768: {
+			slidesPerView: 2,
+			spaceBetween: 20,			
+		},
+		1200: {
+			slidesPerView: 3,
+			spaceBetween: 40,
+		}
+	},
+	navigation: {
+		nextEl: '.p-next',
+		prevEl: '.p-prev',
+	},
+	// centerMode: true,
+	centeredSlides: true,
+	centeredSlidesBounds: true,
+	speed: 700,
+})
+
+
+const REVIEW_SLIDER = new Swiper('.reviews_slider', {
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 20,			
+    },
+    1200: {
+      slidesPerView: 3,
+      spaceBetween: 112,
+    }
+  },
+  pagination: {
+    el: '.reviews_pagination',
+    renderBullet: function (index, className) {
+      var bulletNumber = (index + 1) >= 10 ? (index + 1) : '0' + (index + 1);
+      return '<span class="' + className + '">' + bulletNumber + '</span>';
+    },
+  },
+  speed: 700,
+});
+
+
+
+function succes(success) {
+	$(success).toggleClass('active');
+		setTimeout(function() {
+			$(success).removeClass('active')
+		}, 3000)
+}
+
+function failed(failed) {
+	$(failed).toggleClass('active');
+		setTimeout(function() {
+			$(failed).removeClass('active')
+		}, 3000)
+}
+
+
+
+function modal() {
+	let popup = document.querySelectorAll('.popup')
+	let btnArray = document.querySelectorAll('.trigger')
+	
+	btnArray.forEach((el) => {
+		el.addEventListener('click', function(e) {
+			e.preventDefault();
+			let path = e.currentTarget.dataset.target
+			popup.forEach((el) => {
+				initSlider();
+				checkSubmenu();
+				if(el.dataset.id == path) {
+					isOpen(el)
+				}
+			})
+			
+		})
+	})
+	
+
+	popup.forEach((pop) => {
+		let remove = pop.querySelectorAll('.remove')
+		remove.forEach(el => {
+			el.addEventListener('click', (e) => {
+				isRemove(pop);
+			})
+		});
+	})
+}
+
+
+
+function isOpen(popup) {
+	document.body.classList.add('fixed')
+	popup.classList.add('active')
+}
+
+function isRemove(popup) {
+	popup.classList.remove('active')
+	document.body.classList.remove('fixed')
+}
+
+function initSlider() {
+	const popupSlider = new Swiper('.popup_slider', {
+		spaceBetween: 40,
+		speed: 500,
+		navigation: {
+			nextEl: '.pro-next',
+			prevEl: '.pro-prev',
+		}
+	})
+}
+
+
+function loadVisibleContent() {
+  let seoBlocks = document.querySelectorAll(".seo-block_w");
+
+  Array.from(seoBlocks).forEach((seoBlock) => {
+    let loadMoreButton = seoBlock.querySelector(".link-more");
+    let smallBlock = seoBlock.querySelector(".seo_block");
+    smallBlock.classList.remove("visible");
+
+    loadMoreButton.addEventListener("click", function (e) {
+			e.preventDefault();
+      if (smallBlock.classList.contains("visible")) {
+        smallBlock.classList.remove("visible");
+        loadMoreButton.querySelector("p").innerHTML = "Показать больше";
+      } else {
+        smallBlock.classList.add("visible");
+        loadMoreButton.querySelector("p").innerHTML = "Скрыть";
+      }
+    });
+  });
+}
+
+
+function checkSubmenu() {
+	const menuList = document.querySelectorAll('.burger_nav--list');
+
+	Array.from(menuList).map((menuParentItem) => {
+		let menuItem = menuParentItem.querySelectorAll('li')
+	
+		Array.from(menuItem).map((el) => {
+			let checkItems = el.children
+			Array.from(checkItems).map((items) =>{
+				let icon = document.createElement('div')
+				icon.className = 'icon-submenu'
+				if(items.classList.contains('sub-menu')) {
+					let iconSet = el.appendChild(icon)
+
+					iconSet.addEventListener('click', (e) => {
+						const target = e.target.parentElement
+
+						if (target.classList.contains('current-children-item')) {
+							target.classList.remove('current-children-item')
+						} else {
+							target.classList.add('current-children-item');
+						}
+
+					})
+				}
+			})
+		})
+	})
+}
+
+
+
+
+
+
+
+
 
 
 

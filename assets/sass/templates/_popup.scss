@@ -1,0 +1,321 @@
+
+
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	@include z-index(popup);
+	@include flex-center;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+
+	.close {
+		position: absolute;
+		top: 2rem;
+		right: 2rem;
+		font-size: 3.4rem;
+		color: $gray-2;
+		cursor: pointer;
+		transition: all .3s ease;
+		&:hover {
+			color: red;
+		}
+	}
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+		.popup_main {
+			transform: translate(0);
+		}
+	}
+
+	.contacts_form_w {
+		height: auto;
+		max-width: 53.4rem;
+
+		h4 {
+			font-family: $font_2;
+			font-weight: 700;
+		}
+	}
+}
+
+.popup_bg {
+	background-color: $dark;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: .3;
+}
+
+.popup-products {
+
+}
+
+
+.popup_form {
+	.popup_main {
+		transform: translateY(15rem);
+	}
+}
+
+.popup_main {
+	position: relative;
+	transition: all .3s ease
+}
+
+
+.popup_main--products {
+	@include flex-start;
+	max-width: $page_width;
+	margin: 0 auto;
+	background-color: $white;
+	align-items: flex-start;
+	padding: 9.6rem 9rem 9.6rem 4rem;
+	width: 100%;
+	transform: translateY(15rem);
+
+
+
+
+
+
+	.popup_slider  {
+		max-width: 53.7rem;
+	}
+	.popup_slider_w  {
+		width: 100%;
+		max-width: 63.7rem;
+		position: relative;
+		padding: 0 5rem;
+	}
+
+	.popup_product--content  {
+		max-width: 56rem;
+		padding-left: 4rem;
+		h2, h3, h4, h5, h6 {
+			font-size: 1.6rem;
+			font-family: $font_2;
+			font-weight: 700;
+			margin-bottom: 4rem;
+		}
+	}
+
+	.product_slider--navigation {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		@include flex-space;
+		font-size: 4rem;
+		pointer-events: none;
+		div {
+			cursor: pointer;
+			pointer-events: all;
+		}
+
+		.swiper-button-disabled {
+			color: $gray-2;
+		}
+	}
+}
+
+.scroll-block {
+	max-height: 27.8rem;
+	overflow-y: auto;
+	padding-right: 3.5rem;
+	margin-bottom: 4rem;
+
+	&::-webkit-scrollbar-track {
+		background-color: $gray-1;
+	}
+
+&::-webkit-scrollbar {
+	width: .3rem;
+	background-color: $gray-1;
+}
+
+&::-webkit-scrollbar-thumb {
+	background-color: $dark;
+}
+}
+
+.popup_products--bottom {
+	@include flex-start;
+
+	p {
+		font-family: $font_2;
+		font-weight: 700;
+		margin-right: 3rem;
+	}
+	button {
+		padding: 3rem 4.7rem;
+	}
+
+}
+
+.popup_main--ready {
+	flex-direction: column;
+	padding: 9.6rem 4rem 4rem 4rem;
+
+	.popup_slider_w {
+		max-width: 100%;
+		padding: 0 4rem;
+		margin-bottom: 4rem;
+		.popup_slider {
+			max-width: 100%;
+			height: 55rem;
+			img {
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+
+	.popup_products--bottom {
+		@include flex-space;
+		width: 100%;
+		padding: 0 4rem;
+	}
+}
+
+
+.popup_bottom--title {
+	margin-right: 2rem;
+	h2, h3, h4, h5, h6 {
+		font-size: 1.6rem;
+		font-family: $font_2;
+		font-weight: 700;
+		margin-bottom: 2rem;
+	}
+	p {
+		font-weight: 400;
+		font-family: $font_1;
+	}
+}
+
+.burger {
+	// opacity: 1!important;
+	// visibility: visible!important;
+	justify-content: flex-end;
+	text-align: center;
+
+	&.active {
+		.burger_main {
+			transform: translate(0);
+		}
+	}
+	.burger_main {
+		background-color: $gray-1;
+		height: 100%;
+		position: relative;
+		padding: 3.5rem 6rem 4rem 6rem;
+		max-width: 36.7rem;
+		width: 100%;
+		transition: all .3s ease;
+		transform: translateX(40%)
+	}
+
+	.burger_close {
+		@include flex-center;
+		font-size: 2.4rem;
+		font-family: $font_2;
+		font-weight: 700;
+		cursor: pointer;
+		margin-bottom: 8.7rem;
+		p {
+			margin-right: 1.5rem;
+		}
+
+		.icons {
+			font-size: 3rem;
+			margin-bottom: -0.3rem;
+		}
+	}
+}
+
+
+.burger_nav--list {
+	&>li {
+		position: relative;
+
+		&.current-children-item {
+			&>a {
+				color: $red;
+				font-weight: 700;
+				font-family: $font_2;
+			}
+			.sub-menu {
+				display: block;
+				margin-top: 2rem;
+			}
+		}
+
+
+		&:not(:last-child) {
+			margin-bottom: 3rem;
+		}
+
+		.sub-menu {
+			display: none;
+
+			li {
+				&:not(:last-child) {
+					margin-bottom: 0.7rem;
+				}
+
+				a {
+					color: $gray-2;
+				}
+			}
+
+		}
+	}
+}
+
+.burger-social {
+	position: absolute;
+	bottom: 4rem;
+	left: 50%;
+	transform: translateX(-50%);
+	@include flex-center;
+	font-size: 3.6rem;
+
+	li {
+		a {
+			color: $gray-2;
+		}
+		&:not(:last-child) {
+			margin-right: 2rem;
+		}
+	}
+}
+
+.parent_element_item {
+	a {
+		position: relative;
+		padding-right: 2.9rem;
+		display: block;
+	}
+}
+
+.icon-submenu {
+	background: url('https://api.iconify.design/mdi/chevron-down.svg?width=30') no-repeat center center / contain;
+	width: 2.4rem;
+	height: 2.4rem;
+	position: absolute;
+	top: -.1rem;
+	right: 0;
+	cursor: pointer;
+
+	&.active {
+		transform: rotate(180deg);
+	}
+}

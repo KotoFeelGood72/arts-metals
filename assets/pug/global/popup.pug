@@ -1,4 +1,4 @@
-.popup.form 
+.popup.popup_form(data-id="form") 
 	.popup_bg.remove 
 	.popup_main.form-main
 		.close.remove
@@ -23,7 +23,7 @@
 .burger.popup(data-id="burger")
 	.popup_bg 
 	.burger_main
-		.burger_close 
+		.burger_close.remove 
 			p Меню
 			+iconify({
 				icon: 'ic:outline-close'
@@ -34,7 +34,7 @@
 					li 
 						a(href="#")=item
 						if i === 2
-							ul.sub-list 
+							ul.sub-menu 
 								each item in ['Абажуры', 'Светильники и люстры', 'Лестницы', 'Печи и камины', 'Сувениры', 'Комплексные решения']
 									li 
 										a(href="#")=item
