@@ -228,6 +228,7 @@ const REVIEW_SLIDER = new Swiper('.reviews_slider', {
     }
   },
   pagination: {
+		clickable: true,
     el: '.reviews_pagination',
     renderBullet: function (index, className) {
       var bulletNumber = (index + 1) >= 10 ? (index + 1) : '0' + (index + 1);
