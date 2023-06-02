@@ -52,6 +52,10 @@
 	width: 100%;
 	height: 100%;
 	opacity: .3;
+
+	@include bp($point_2) {
+		opacity: .7;
+	}
 }
 
 .popup-products {
@@ -81,6 +85,13 @@
 	width: 100%;
 	transform: translateY(15rem);
 
+	@include bp($point_2) {
+		flex-direction: column;
+		padding: 6rem 3rem;
+		max-height: 90%;
+		overflow-y: auto;
+	}
+
 
 
 
@@ -88,22 +99,53 @@
 
 	.popup_slider  {
 		max-width: 53.7rem;
+
+		@include bp($point_2) {
+			max-width: 100%;
+			margin-bottom: 4rem;
+		}
 	}
 	.popup_slider_w  {
 		width: 100%;
 		max-width: 63.7rem;
 		position: relative;
 		padding: 0 5rem;
+
+		.swiper-slide {
+			pointer-events: none;
+			@include bp($point_2) {
+				pointer-events: all;
+			}
+		}
+
+		@include bp($point_2) {
+			max-width: 30rem;
+			padding: 0;
+		}
+		@include bp($point_4) {
+			max-width: 100%;
+
+		}
 	}
 
 	.popup_product--content  {
 		max-width: 56rem;
 		padding-left: 4rem;
+
+		@include bp($point_2) {
+			max-width: 100%;
+			padding: 0;
+		}
 		h2, h3, h4, h5, h6 {
 			font-size: 1.6rem;
 			font-family: $font_2;
 			font-weight: 700;
 			margin-bottom: 4rem;
+
+			@include bp($point_2) {
+				font-size: 2rem;
+				margin-bottom: 2rem;
+			}
 		}
 	}
 
@@ -116,6 +158,10 @@
 		@include flex-space;
 		font-size: 4rem;
 		pointer-events: none;
+
+		@include bp($point_4) {
+			display: none;
+		}
 		div {
 			cursor: pointer;
 			pointer-events: all;
@@ -154,9 +200,17 @@
 		font-family: $font_2;
 		font-weight: 700;
 		margin-right: 3rem;
+
+		@include bp($point_2) {
+			display: none;
+		}
 	}
 	button {
 		padding: 3rem 4.7rem;
+
+		@include bp($point_2) {
+			padding: 2rem 4rem;
+		}
 	}
 
 }
@@ -169,12 +223,23 @@
 		max-width: 100%;
 		padding: 0 4rem;
 		margin-bottom: 4rem;
+		@include bp($point_2) {
+			padding: 0;
+			margin-bottom: 2rem;
+		}
 		.popup_slider {
 			max-width: 100%;
 			height: 55rem;
+
+			@include bp($point_2) {
+				height: auto;
+			}
 			img {
 				height: 100%;
 				object-fit: cover;
+				@include bp($point_2) {
+					height: auto
+				}
 			}
 		}
 	}
@@ -183,6 +248,13 @@
 		@include flex-space;
 		width: 100%;
 		padding: 0 4rem;
+
+		@include bp($point_2) {
+			padding: 0;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		
 	}
 }
 
@@ -214,11 +286,18 @@
 		background-color: $gray-1;
 		height: 100%;
 		position: relative;
-		padding: 3.5rem 6rem 4rem 6rem;
+		padding: 4.5rem 6rem 4rem 6rem;
 		max-width: 36.7rem;
 		width: 100%;
 		transition: all .3s ease;
-		transform: translateX(40%)
+		transform: translateX(40%);
+
+		@include bp($point_4) {
+			max-width: 80%;
+			overflow-y: auto;
+			max-height: 100%;
+			padding: 4rem 2rem 5rem 2rem
+		}
 	}
 
 	.burger_close {
@@ -228,8 +307,18 @@
 		font-weight: 700;
 		cursor: pointer;
 		margin-bottom: 8.7rem;
+
+		@include bp($point_2) {
+			position: absolute;
+			top: 2rem;
+			right: 2rem;
+		}
 		p {
 			margin-right: 1.5rem;
+
+			@include bp($point_3) {
+				display: none;
+			} 
 		}
 
 		.icons {
@@ -241,6 +330,10 @@
 
 
 .burger_nav--list {
+
+	@include bp($point_2) {
+		margin-bottom: 8rem;
+	}
 	&>li {
 		position: relative;
 
@@ -286,6 +379,11 @@
 	@include flex-center;
 	font-size: 3.6rem;
 
+	@include bp($point_4) {
+		position: static;
+		transform: none;
+	}
+
 	li {
 		a {
 			color: $gray-2;
@@ -316,4 +414,15 @@
 	&.active {
 		transform: rotate(180deg);
 	}
+}
+
+.popup-products {
+	@include bp($point_2) {
+		@include flex-end;
+		align-items: flex-end;
+	}
+}
+
+.fancybox__thumbs .carousel__slide .fancybox__thumb::after {
+	border-color: $red!important;
 }

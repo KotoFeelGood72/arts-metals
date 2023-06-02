@@ -1,10 +1,19 @@
 .page_about--main {
 	@include flex-start;
+
+	@include bp($point_2) {
+		flex-direction: column;
+		text-align: center;
+	}
 }
 
 .page_about--content {
 	max-width: 67.7rem;
 	margin-right: 12rem;
+
+	@include bp($point_2) {
+		margin: 0 0 6rem 0;
+	}
 
 	h1 {
 		font-family: $font_3;
@@ -13,6 +22,11 @@
 		font-size: 4.8rem;
 		line-height: 4.8rem;
 		text-align: center;
+
+		@include bp($point_4) {
+			font-size: 3rem;
+			line-height: 3.6rem;
+		}
 	}
 
 	&>span {
@@ -27,6 +41,10 @@
 
 .page_about--img {
 	width: 100%;
+
+	@include bp($point_2) {
+		max-width: 45rem;
+	}
 	img {
 		object-fit: cover;
 	}
@@ -35,9 +53,17 @@
 .portfolio {
 	background: linear-gradient(180deg, #EAEAEA 0%, rgba(234, 234, 234, 0) 100%);
 	padding: 10rem 0 15.5rem 0;
+
+	@include bp($point_2) {
+		padding: 6rem 0 10rem 0;
+	}
 	.decor {
 		max-width: 15.9rem;
 		margin: 0 auto 12rem auto;
+
+		@include bp($point_4) {
+			margin: 0 auto 4rem auto;
+		}
 	}
 
 
@@ -48,6 +74,10 @@
 			font-family: $font_3;
 			font-size: 2.4rem;
 			margin-bottom: 15rem;
+
+			@include bp($point_4) {
+				margin-bottom: 10rem;
+			}
 		}
 	}
 
@@ -62,5 +92,13 @@
 		left: 50%;
 		transform: translateX(-50%);
 		width: 100%;
+	}
+}
+
+.project_slider  {
+	.swiper-wrapper {
+		@include bp($point_2, $direction:min) {
+			height: 100%;
+		}
 	}
 }

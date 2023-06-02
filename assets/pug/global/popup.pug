@@ -21,7 +21,7 @@
 				})
 
 .burger.popup(data-id="burger")
-	.popup_bg 
+	.popup_bg.remove 
 	.burger_main
 		.burger_close.remove 
 			p Меню
@@ -29,7 +29,7 @@
 				icon: 'ic:outline-close'
 			})
 		nav.burger_nav 
-			ul.burger_nav--list 
+			ul.burger_nav--list.hover-link 
 				each item, i in ['Главная', 'О себе', 'Металл в интерьере', 'Металл в экстерьере', 'Готовые решения', 'Контакты']
 					li 
 						a(href="#")=item

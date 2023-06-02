@@ -3,6 +3,10 @@
 	height: 40rem;
 	position: relative;
 
+	@include bp($point_4) {
+		height: 25rem;
+	}
+
 	text-align: center;
 
 	@include flex-center;
@@ -11,12 +15,20 @@
 		color: $white;
 		z-index: 1;
 		font-size: 4.8rem;
+
+		@include bp($point_4) {
+			font-size: 2.6rem;
+		}
 	}
 
 	p {
 		color: $white;
 		max-width: 77.7rem;
 		margin-top: 3rem;
+
+		@include bp($point_4) {
+			font-size: 1.4rem;
+		}
 	}
 }
 

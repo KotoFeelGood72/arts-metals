@@ -1,11 +1,24 @@
 .header {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	height: $header;
 	width: 100%;
 	will-change: transform;
 	@include z-index(header);
+	@include flex-center;
+	transition: all .3s ease;
+
+	@include bp($point_4) {
+		height: 8rem;
+	}
+	&.fixed {
+		background-color: $dark;
+		.header_logo {
+			opacity: 1;
+			visibility: visible
+		}
+	}
 }
 
 
@@ -20,6 +33,11 @@
 .header_logo {
 	opacity: 0;
 	visibility: hidden;
+	transition: all .3s ease;
+
+	@include bp($point_4) {
+		max-width: 17rem;
+	}
 }
 .burger_w {
 	color: $white;
@@ -30,6 +48,9 @@
 		font-size: 2.4rem;
 		font-family: $font_2;
 		font-weight: 700;
+		@include bp($point_4) {
+			display: none;
+		}
 	}
 }
 .trigger {

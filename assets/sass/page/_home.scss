@@ -1,5 +1,6 @@
 .hero {
 	background: url('../../i/home/hero.jpg') center/cover no-repeat;
+	position: relative;
 }
 .section_in {
 }
@@ -10,17 +11,63 @@
 .hero_logo--origin {
 	min-width: 18rem;
 	margin-right: 10.7rem;
+
+	@include bp($point_2) {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		opacity: .3;
+	}
 }
 .hero_content {
+	@include bp($point_2) {
+		text-align: center;
+		width: 100%;
+	}
 
 	h1 {
 		max-width: 69.3rem;
 		color: $white;
+		margin-bottom: 6.3rem;
+		@include bp($point_2) {
+			max-width: 100%;
+		}
+	}
+
+	.link-default {
+
+		@include bp($point_2) {
+			@include flex-center;
+		}
+		a {
+			color: $gray-1;
+			@include flex-start;
+			font-weight: 700;
+			font-family: $font_2;
+			&:hover  {
+				color: $red;
+			}
+			p {
+				margin-right: 0.5rem;
+			}
+
+			.link-icon {
+				font-size: 2.2rem;
+
+				line-height: 0;
+				margin-bottom: -.2rem;
+			}
+		}
 	}
 }
 .hero_logo--txt {
 	margin-bottom: 6rem;
 	max-width: 43.7rem;
+	@include bp($point_2) {
+		margin: 0 auto 4rem auto;
+		max-width: 30rem;
+	}
 }
 .link-default {
 }
@@ -38,6 +85,11 @@
 .about_main {
 	@include flex-start;
 
+	@include bp($point_2) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
 	.decor {
 		max-width: 16.5rem;
 		margin: 7.4rem auto 0 auto;
@@ -46,15 +98,31 @@
 .about_content {
 	max-width: 53.4rem;
 	margin-right: 18rem;
+	@include bp($point_2) {
+		margin: 0;
+		max-width: 100%;
+		order: 1;
+		text-align: center;
+	}
 }
 .about_logo--txt {
 	margin: 0 auto 6rem auto;
 	max-width: 40rem;
+
+	@include bp($point_4) {
+		max-width: 25rem;
+	}
 }
 .decor {
 }
 .about_img {
 	width: 67.7rem;
+	@include bp($point_2) {
+		width: auto;
+		order: 0;
+		margin: 0 auto 6rem auto;
+		max-width: 45rem;
+	}
 	img {
 		width: 100%;
 		object-fit: cover;
@@ -106,6 +174,10 @@
 	height: 60rem;
 	overflow: visible!important;
 	margin-bottom: 6rem!important;
+	@include bp($point_2) {
+		overflow: hidden!important;
+		height: auto;
+	}
 
 	a {
 		height: 100%;
@@ -129,6 +201,11 @@
 	margin-right: 0;
 	margin-left: auto;
 
+	@include bp($point_2) {
+		@include flex-center;
+		max-width: 100%;
+	}
+
 	.swiper-button-disabled {
 		opacity: .4;
 		pointer-events: none;
@@ -151,6 +228,9 @@
 		width: 3rem;
 		height: 3rem;
 		@include flex-center;
+		@include bp($point_2) {
+			margin: 0 1rem;
+		}
 	}
 }
 .p-prev {
@@ -171,9 +251,18 @@
 	max-width: 53.7rem;
 	margin-right: 12rem;
 
+	@include bp($point_2) {
+		max-width: 100%;
+		margin: 0 0 6rem 0;
+	}
+
 	.seo_block  {
 		margin-bottom: 4.4rem;
 		color: $gray-2;
+
+		@include bp($point_2) {
+			margin-bottom: 2rem;
+		}
 	}
 }
 .step_logo--txt {
@@ -194,10 +283,17 @@
 }
 .step-list {
 	max-width: 64.5rem;
+	@include bp($point_2) {
+		max-width: 100%
+	}
 
 	li {
 		@include flex-start;
 
+		@include bp($point_4)
+ {
+	align-items: flex-start;
+ }
 		&:not(:last-child) {
 			margin-bottom: 4rem;
 		}
@@ -209,15 +305,30 @@
 		font-family: $font_3;
 		margin-right: 3rem;
 		font-style: italic;
+
+		@include bp($point_4) {
+			// font-size: 6rem;
+			min-width: 3.6rem;
+			margin-top: -2rem;
+			margin-right: 3rem;
+		}
 	}
 
 	.step_item--content {
+
+		@include bp($point_4) {
+			font-size: 1.4rem;
+		}
 		p {
 			font-size: 2.4rem;
 			font-family: $font_2;
 			font-weight: 700;
 			margin-bottom: 1rem;
 			color: $gray-2;
+			@include bp($point_4) {
+				font-size: 1.8rem;
+				margin-bottom: 0.5rem;
+			}
 		}
 	}
 }
@@ -229,6 +340,15 @@
 	padding: 34.3rem 0 8rem 0;
 	background: url('../../i/home/review.jpg') 0% 130% no-repeat;
 	text-align: center;
+
+	@include bp($point_2) {
+		background: url('../../i/home/review.jpg') 0% 97% no-repeat;
+		padding: 20rem 0 10rem 0;
+	}
+
+	@include bp($point_4) {
+		padding: 10rem 0 10rem 0;
+	}
 }
 .reviews_main {
 }
@@ -236,6 +356,10 @@
 
 	.swiper-wrapper {
 		margin-bottom: 10.8rem;
+
+		@include bp($point_4) {
+			margin-bottom: 6rem;
+		}
 	}
 
 	.swiper-slide {
@@ -244,11 +368,19 @@
 			font-family: $font_2;
 			font-weight: 700;
 			color: #0d0d0d;
+
+			@include bp($point_4) {
+				margin-bottom: 1.5rem;
+			}
 		}
 		span {
 			color: $gray-2;
 			display: block;
 			margin-bottom: 5rem;
+
+			@include bp($point_4) {
+				margin-bottom: 2rem;
+			}
 		}
 	}
 }
@@ -319,6 +451,11 @@
 .contacts-list {
 	@include flex-center;
 	margin-bottom: 6.4rem;
+
+	@include bp($point_4) {
+		flex-direction: column;
+		align-items: center;
+	}
 }
 .contacts-item {
 
@@ -328,6 +465,10 @@
 
 	&:not(:last-child) {
 		margin-right: 4.2rem;
+
+		@include bp($point_4) {
+			margin: 0 0 2rem 0;
+		}
 	}
 	.icons {
 		margin-right: 1rem;
@@ -343,7 +484,7 @@
 .social-list {
 
 	@include flex-center;
-
+	margin: -2rem -2rem 0 0;
 	li {
 		padding: 2rem 2rem 0 0;
 		font-size: 5rem;

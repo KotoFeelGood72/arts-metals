@@ -35,6 +35,10 @@ $(window).on('load', function () {
 	modal();
 	loadVisibleContent();
 	checkSubmenu();
+
+	if(windowWidth < mediaPoint1) {
+		catMobile();
+	}
 });
 
 $(window).on('resize', function () {
@@ -166,10 +170,14 @@ const PROJECT_SLIDER = new Swiper('.project_slider_home', {
 		320: {
 			slidesPerView: 1,
 			spaceBetween: 10,
+			centeredSlides: false,
+			centeredSlidesBounds: false,
 		},
 		768: {
 			slidesPerView: 2,
 			spaceBetween: 20,			
+			centeredSlides: false,
+			centeredSlidesBounds: false,
 		},
 		1200: {
 			slidesPerView: 2.5,
@@ -265,7 +273,9 @@ function modal() {
 			e.preventDefault();
 			let path = e.currentTarget.dataset.target
 			popup.forEach((el) => {
-				initSlider();
+				if(windowWidth > mediaPoint1) {
+					initSlider();
+				}
 				checkSubmenu();
 				if(el.dataset.id == path) {
 					isOpen(el)
@@ -334,21 +344,24 @@ function loadVisibleContent() {
 
 function checkSubmenu() {
 	const menuList = document.querySelectorAll('.burger_nav--list');
-
+	
 	Array.from(menuList).map((menuParentItem) => {
 		let menuItem = menuParentItem.querySelectorAll('li')
-	
+		
 		Array.from(menuItem).map((el) => {
-			let checkItems = el.children
+			let checkItems = el.children			
 			Array.from(checkItems).map((items) =>{
-				let icon = document.createElement('div')
-				icon.className = 'icon-submenu'
+				
+				
 				if(items.classList.contains('sub-menu')) {
-					let iconSet = el.appendChild(icon)
-
+					// console.log(items.parentElement)
+					let icon = document.createElement('div')
+					icon.className = 'icon-submenu'
+					let iconSet = items.parentElement.appendChild(icon)
+				
 					iconSet.addEventListener('click', (e) => {
 						const target = e.target.parentElement
-
+						
 						if (target.classList.contains('current-children-item')) {
 							target.classList.remove('current-children-item')
 						} else {
@@ -360,6 +373,50 @@ function checkSubmenu() {
 			})
 		})
 	})
+}
+
+$(window).on("scroll", function () {
+	var scrolled = $(this).scrollTop();
+	if( scrolled > 107 ) {
+			$('.header').addClass('fixed');
+	}   
+	if( scrolled <= 107 ) {     
+			$('.header').removeClass('fixed');
+	}
+});
+
+
+let randomAlert = true
+const btnSubmit = document.querySelectorAll('input[type="submit"]')
+Array.from(btnSubmit).map((item) => {
+	item.addEventListener('click', (e) => {
+		e.preventDefault();
+
+		if(randomAlert) {
+			succes('.success')
+			randomAlert = false
+		} else {
+			failed('.failed')
+			randomAlert = true
+		}
+	})
+})
+
+function catMobile() {
+	const sidebar = document.querySelector('.sidebar')
+
+	if(sidebar) {
+
+		sidebar.addEventListener('click', (e) => {
+			let target = e.target;
+
+			if(target.classList.contains('active')) {
+				target.classList.remove('active')
+			} else {
+				target.classList.add('active')
+			}
+		})
+	}
 }
 
 

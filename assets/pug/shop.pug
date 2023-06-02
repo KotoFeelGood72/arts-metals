@@ -10,7 +10,7 @@ block content_block
 		.section_custom 
 			.shop_main.flex-2 
 				.sidebar 
-					nav.cat-list 
+					nav.cat-list.hover-link
 						ul.cat_list--menu 
 							each item in ['Ворота', 'Заборы', 'Козырьки', 'Балконы', 'Ограждения', 'Комплексные решения', 'Освещение', 'Мебель для сада', 'Предметы для сада']
 								li 
@@ -21,7 +21,7 @@ block content_block
 						-for(i = 0; i < 12; i++)
 							li.products-item
 								a(href="#" data-target="products" class="trigger") 
-									.products_item--img 
+									.products_item--img.hover-card 
 										img(src="i/shop/products.jpg", alt="")
 									h3 Название товара
 					ul.pagination-list.mb15
@@ -57,8 +57,9 @@ block content_block
 				.popup_slider.swiper 
 					.swiper-wrapper
 						-for(i = 0; i < 5; i++)
-							.swiper-slide 
-								img(src="i/shop/products.jpg", alt="")
+							.swiper-slide
+								a(href="i/shop/products.jpg" data-fancybox="popups")  
+									img(src="i/shop/products.jpg", alt="")
 				.product_slider--navigation
 					.pro-prev 
 						+iconify({

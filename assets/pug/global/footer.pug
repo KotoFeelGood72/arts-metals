@@ -5,7 +5,7 @@ footer.footer
 				a(href="#")
 					img(src="i/home/about-logo.svg", alt="")
 			.footer-body 
-				ul.contacts-list
+				ul.contacts-list.hover-link
 					-for(i = 0; i < 2; i++)
 						- let link = ['8 (888) 888-88-88', 'mail@mail.ru']
 						- let icon = ['ic:baseline-phone-in-talk', 'fluent:mail-24-filled']
@@ -15,7 +15,7 @@ footer.footer
 										icon: icon[i]
 									})
 									p=link[i]
-				ul.social-list 
+				ul.social-list.hover-link 
 					each item in ['ri:whatsapp-fill', 'ic:baseline-telegram', 'entypo-social:vk-with-circle']
 						li 
 							a(href="#")
@@ -25,7 +25,7 @@ footer.footer
 			.footer-bottom 
 				ul.footer_info 
 					each item, i in ['Политика конфиденциальности', '© 2023 Все права защищены', 'brand']
-						if i === 1
+						if i === 0
 							li 
 								a(href="#")=item 
 						else if i === 2

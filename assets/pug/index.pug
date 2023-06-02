@@ -68,7 +68,7 @@ block content_block
 							p Fringilla nibh enim purus tortor volutpat hendrerit tincidunt. Eget libero pulvinar tincidunt sapien at.Lorem ipsum dolor sit amet consectetur. Euismod ac pretium varius orci quis semper purus diam ornare. Et elit semper eget morbi. At potenti amet elementum lacus lacus tellus vitae. Amet nulla egestas natoque orci malesuada egestas. Et morbi faucibus lorem arcu. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui sit. Nunc ut eget facilisis viverra dolor iaculis arcu feugiat nec. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui sit. Nunc ut eget facilisis viverra dolor iaculis arcu feugiat nec. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse
 							p Fringilla nibh enim purus tortor volutpat hendrerit tincidunt. Eget libero pulvinar tincidunt sapien at.Lorem ipsum dolor sit amet consectetur. Euismod ac pretium varius orci quis semper purus diam ornare. Et elit semper eget morbi. At potenti amet elementum lacus lacus tellus vitae. Amet nulla egestas natoque orci malesuada egestas. Et morbi faucibus lorem arcu. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui sit. Nunc ut eget facilisis viverra dolor iaculis arcu feugiat nec. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse rhoncus elementum dui sit. Nunc ut eget facilisis viverra dolor iaculis arcu feugiat nec. In tristique mi vestibulum mattis volutpat ligula sed nisl. Volutpat habitasse urna et rhoncus. Gravida viverra vel diam suspendisse
 						.link-more.brown 
-							p Показать больше
+							p.brown Показать больше
 							+iconify({
 								icon: 'gg:chevron-right',
 							})
@@ -101,7 +101,7 @@ block content_block
 			.contacts_main_w 
 				h5 Ваш звонок очень важен для нас
 				p Lorem ipsum dolor sit amet consectetur.
-				ul.contacts-list
+				ul.contacts-list.hover-link
 					-for(i = 0; i < 2; i++)
 						- let link = ['8 (888) 888-88-88', 'mail@mail.ru']
 						- let icon = ['ic:baseline-phone-in-talk', 'fluent:mail-24-filled']
@@ -111,7 +111,7 @@ block content_block
 										icon: icon[i]
 									})
 									p=link[i]
-				ul.social-list 
+				ul.social-list.hover-link
 					each item in ['ri:whatsapp-fill', 'ic:baseline-telegram', 'entypo-social:vk-with-circle']
 						li 
 							a(href="#")

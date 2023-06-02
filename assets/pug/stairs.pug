@@ -10,7 +10,7 @@ block content_block
 		.section_custom 
 			.shop_main.flex-2 
 				.sidebar 
-					nav.cat-list 
+					nav.cat-list.hover-link 
 						ul.cat_list--menu 
 							each item in ['Лестницы', 'Лестничные ограждения', 'Абажуры', 'Светильники и люстры', 'Мебель', 'Печи и камины', 'Сувениры']
 								li 
@@ -21,7 +21,7 @@ block content_block
 						-for(i = 0; i < 12; i++)
 							li.products-item
 								a(href="#" class="trigger" data-target="products") 
-									.products_item--img 
+									.products_item--img.hover-card 
 										img(src="i/shop/stairs.jpg", alt="")
 									h3 Название товара
 					ul.pagination-list.mb15
@@ -55,8 +55,9 @@ block content_block
 				.popup_slider.swiper 
 					.swiper-wrapper
 						-for(i = 0; i < 5; i++)
-							.swiper-slide 
-								img(src="i/shop/stairs.jpg", alt="")
+							.swiper-slide
+								a(href="i/shop/stairs.jpg" data-fancybox)  
+									img(src="i/shop/stairs.jpg", alt="")
 				.product_slider--navigation
 					.pro-prev 
 						+iconify({
@@ -74,6 +75,7 @@ block content_block
 				.popup_products--bottom 
 					p Для заказа свяжитесь с нами:
 					+btn({
-						class: 'black',
-						btn: 'Оставить заявку'
+						class: 'black remove',
+						btn: 'Оставить заявку',
+						target: 'form'
 					})

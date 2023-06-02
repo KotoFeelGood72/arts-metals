@@ -30,7 +30,7 @@ block content_block
 								},
 							]
 						each item in info 
-							li.contacts_info--item 
+							li.hover-link.contacts_info--item 
 								.contacts_item--label 
 									+iconify({
 										icon: item.icon
@@ -47,7 +47,7 @@ block content_block
 							icon: 'material-symbols:smartphone'
 						})
 						p Социальные сети
-					ul.contacts_social
+					ul.contacts_social.hover-link
 						-for(i = 0; i < 3; i++)
 							- let nameSocial = ['WhatsApp', 'Telegram', 'ВКонтакте']
 							- let iconSocial = ['ri:whatsapp-fill', 'ic:baseline-telegram', 'entypo-social:vk-with-circle']

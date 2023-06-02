@@ -2,6 +2,12 @@
 	padding: 10rem 0 15rem 0;
 	@include flex-start;
 	align-items: flex-start;
+
+	@include bp($point_4) {
+		flex-direction: column;
+
+		padding: 10rem 0;
+	}
 }
 
 .contacts_info--item {
@@ -13,6 +19,10 @@
 		a {
 			font-size: 4.8rem;
 			font-family: $font_3;
+
+			@include bp($point_4) {
+				font-size: 4rem;
+			}
 		}	
 	}
 	p {
@@ -20,11 +30,19 @@
 	}
 	&:not(:last-child) {
 		margin-bottom: 8rem;
+
+		@include bp($point_4) {
+			margin-bottom: 4rem;
+		}
 	}
 }
 .contacts_item--label {
 	@include flex-start;
 	margin-bottom: 3rem;
+
+	@include bp($point_4) {
+		margin-bottom: 1.5rem;
+	}
 	p {
 		font-family: $font_2;
 		font-weight: 700;
@@ -41,6 +59,10 @@
 
 .contacts_info {
 	margin-right: 30rem;
+
+	@include bp($point_4) {
+		margin: 0 0 4rem 0
+	}
 }
 
 .contacts_social--label {
@@ -86,9 +108,21 @@
 .contacts_body {
 	@include flex-start;
 	height: 59.4rem;
+	@include bp($point_2) {
+		flex-direction: column;
+		height: auto;
+	}
 	.map  {
 		width: 100%;
 		height: 100%;
+		@include bp($point_2) {
+			height: 35rem;
+			margin-bottom: -10rem;
+		}
+
+		@include bp($point_4) {
+			margin-bottom: 0;
+		}
 
 		#map {
 			height: 100%;
@@ -103,6 +137,11 @@
 	padding: 6rem 7rem;
 	text-align: center;
 
+	@include bp($point_2) {
+		padding: 5rem 3rem;
+		width: 100%;
+	}
+
 	h4 {
 		font-size: 2.4rem;
 		line-height: 2.4rem;
@@ -114,6 +153,14 @@
 .form_notice {
 	margin: 4rem 0;
 	color: $gray-2;
+
+	@include bp($point_2) {
+		padding: 2rem 0;
+		font-size: 1.2rem;
+		max-width: 35rem;
+		margin: 0 auto;
+		order: 5;
+	}
 	a {
 		color: inherit;
 		&:hover {
