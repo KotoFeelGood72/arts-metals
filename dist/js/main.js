@@ -341,39 +341,43 @@ function loadVisibleContent() {
   });
 }
 
-
 function checkSubmenu() {
-	const menuList = document.querySelectorAll('.burger_nav--list');
-	
-	Array.from(menuList).map((menuParentItem) => {
-		let menuItem = menuParentItem.querySelectorAll('li')
-		
-		Array.from(menuItem).map((el) => {
-			let checkItems = el.children			
-			Array.from(checkItems).map((items) =>{
-				
-				
-				if(items.classList.contains('sub-menu')) {
-					// console.log(items.parentElement)
-					let icon = document.createElement('div')
-					icon.className = 'icon-submenu'
-					let iconSet = items.parentElement.appendChild(icon)
-				
-					iconSet.addEventListener('click', (e) => {
-						const target = e.target.parentElement
-						
-						if (target.classList.contains('current-children-item')) {
-							target.classList.remove('current-children-item')
-						} else {
-							target.classList.add('current-children-item');
-						}
+  const menuItems = document.querySelectorAll('.burger_nav--list li');
 
-					})
-				}
-			})
-		})
-	})
+  menuItems.forEach((menuItem) => {
+    const subMenus = menuItem.querySelectorAll('.sub-menu');
+    if (subMenus.length > 0) {
+      let hasIconSubmenu = false;
+
+      menuItem.childNodes.forEach((node) => {
+        if (node.classList && node.classList.contains('icon-submenu')) {
+          hasIconSubmenu = true;
+        }
+      });
+
+      if (!hasIconSubmenu) {
+        const icon = document.createElement('div');
+        icon.className = 'icon-submenu';
+        menuItem.appendChild(icon);
+
+        icon.addEventListener('click', (e) => {
+          const target = e.target.parentElement;
+
+          if (target.classList.contains('current-children-item')) {
+            target.classList.remove('current-children-item');
+          } else {
+            target.classList.add('current-children-item');
+          }
+        });
+      }
+    }
+  });
 }
+
+
+
+
+
 
 $(window).on("scroll", function () {
 	var scrolled = $(this).scrollTop();

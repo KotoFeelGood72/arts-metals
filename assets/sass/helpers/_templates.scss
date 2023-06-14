@@ -241,8 +241,8 @@
 		text-overflow: ellipsis;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 34;
-		max-height: 86rem;
+		-webkit-line-clamp: 30;
+		max-height: 83rem;
 
 		@include bp($point_2) {
 			-webkit-line-clamp: 20;
@@ -256,12 +256,20 @@
 	}
 }
 
-.hover-link {
+.hover-link, .current-menu-item {
 	a {
 		transition: all .3s ease;
 		&:hover {
 			color: $red;
 		}
+	}
+}
+
+.current-menu-item {
+	a {
+		font-family: $font_2;
+		font-weight: 600;
+		color: $red;
 	}
 }
 

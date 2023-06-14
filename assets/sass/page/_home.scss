@@ -198,7 +198,7 @@
 	@include flex-space;
 	position: relative;
 	max-width: 9rem;
-	margin-right: 0;
+	margin-right: -6.3rem;
 	margin-left: auto;
 
 	@include bp($point_2) {
@@ -250,6 +250,18 @@
 .step_content {
 	max-width: 53.7rem;
 	margin-right: 12rem;
+
+	.mb6 {
+		font-family: $font_3;
+		font-size: 4.8rem;
+		font-weight: 400;
+		margin-bottom: 4rem;
+		@include bp($point_2) {
+			font-size: 2.6rem;
+			margin-bottom: 1rem;
+
+		}
+	}
 
 	@include bp($point_2) {
 		max-width: 100%;
@@ -448,6 +460,19 @@
 		margin: 3rem 0 6.4rem 0;
 	}
 }
+
+.reviews {
+	.contacts-item {
+		a {
+			color: $dark;
+			p {
+				font-size: 2.4rem;
+				font-weight: 700;
+				font-family: $font_2;
+			}
+		}
+	}
+}
 .contacts-list {
 	@include flex-center;
 	margin-bottom: 6.4rem;
@@ -458,10 +483,9 @@
 	}
 }
 .contacts-item {
-
-	font-size: 2.4rem;
-	font-weight: 700;
-	font-family: $font_2;
+a {
+	@include flex-start;
+}
 
 	&:not(:last-child) {
 		margin-right: 4.2rem;
@@ -472,9 +496,6 @@
 	}
 	.icons {
 		margin-right: 1rem;
-	}
-	a {
-		@include flex-start;
 	}
 }
 .ic:baseline-phone-in-talk {

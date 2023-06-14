@@ -323,7 +323,7 @@
 
 		.icons {
 			font-size: 3rem;
-			margin-bottom: -0.3rem;
+			margin-bottom: -1rem;
 		}
 	}
 }
@@ -387,6 +387,9 @@
 	li {
 		a {
 			color: $gray-2;
+			&:hover {
+				color: $red;
+			}
 		}
 		&:not(:last-child) {
 			margin-right: 2rem;
